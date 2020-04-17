@@ -2,3 +2,4 @@
 *.exe
 src/slack_emoji_ex_importer/constant.nim
 img/
+/bin/
