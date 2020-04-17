@@ -35,7 +35,7 @@ Slackのカスタムスタンプの出力と、
 
 ### Slackのアクセス情報
 
-- srcフォルダ配下の「constant.example.nim」を「constant.nim」にリネーム
+- src/slack_emoji_ex_importerフォルダ配下の「constant.example.nim」を「constant.nim」にリネーム
 - constant.nimの中の情報を書き換える
 
 
@@ -43,6 +43,8 @@ Slackのカスタムスタンプの出力と、
 
 ```
 nimble run exporter
+# あるいは
+nimble build && ./bin/exporter
 ```
 
 imgフォルダが作られそこに全部収納されます。  
@@ -62,6 +64,8 @@ imgフォルダが作られそこに全部収納されます。
 
 ```
 nimble run importer
+# あるいは
+nimble build && ./bin/importer
 ```
 
 するとFirefoxが立ち上がり、絵文字の登録処理をし始めるので待つ。
