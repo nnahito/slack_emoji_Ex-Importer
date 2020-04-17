@@ -30,7 +30,6 @@ Slackのカスタムスタンプの出力と、
 ### 上記「必要なもの」に書いたもの
 
 - Nim本体
-- `nimble install webdriver`
 - gecko（ https://github.com/mozilla/geckodriver/releases ）
 
 
