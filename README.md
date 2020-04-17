@@ -38,6 +38,14 @@ nim c -d:ssl -r exporter.nim
 
 geckodriver.exe（Windows）を起動し、Nimのコードを実行する。
 
+入れていなければWebdriverプラグインも入れる。
+
+```
+nimble install webdriver
+```
+
+↓　実行
+
 ```
 nim c -r importer.nim
 ```
