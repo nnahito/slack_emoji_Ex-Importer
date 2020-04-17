@@ -1,4 +1,4 @@
 *.csv
 *.exe
-src/constant.nim
+src/slack_emoji_ex_importer/constant.nim
 img/
