@@ -35,6 +35,11 @@ Slackのカスタムスタンプの出力と、
 - src/slack_emoji_ex_importerフォルダ配下の「constant.example.nim」を「constant.nim」にリネーム
 - constant.nimの中の情報を書き換える
 
+## ビルド方法
+
+```
+nimble build
+```
 
 ## Slackに登録済みの絵文字を全部引っ張り出す
 
