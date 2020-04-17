@@ -17,9 +17,6 @@ Slackのカスタムスタンプの出力と、
     - Windowsでは、`scoop install nim`で入れることができる。
     - Linuxではそれぞれのパッケージツールで入れることができる。アーチリナックスではchoosenimも配布されていた。すげえわ。
 - SlackのToken（read:emoji）
-- webdriver .... https://github.com/dom96/webdriver/
-    - Nimインストール後、nimのパッケージ管理ツール（Pythonのpipみたいなの）で入れれる
-    - `nimble install webdriver`
 - gecko（firefoxのレンダリングエンジン）
     - これは自分で落としてください
     - https://github.com/mozilla/geckodriver/releases
@@ -71,3 +68,9 @@ nimble build && ./bin/importer
 するとFirefoxが立ち上がり、絵文字の登録処理をし始めるので待つ。
 
 以上
+
+## 参考
+
+- webdriver .... https://github.com/dom96/webdriver/
+    - Nimインストール後、nimのパッケージ管理ツール（Pythonのpipみたいなの）で入れれる
+    - `nimble install webdriver`
