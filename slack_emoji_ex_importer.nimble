@@ -5,8 +5,8 @@ author        = "jiro4989"
 description   = "A new awesome nimble package"
 license       = "MIT"
 srcDir        = "src"
-bin           = @["slack_emoji_Ex_Importer"]
-
+bin           = @["exporter", "importer"]
+binDir        "bin"
 
 
 # Dependencies
