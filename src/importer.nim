@@ -1,7 +1,7 @@
 import webdriver
 import options
 import os
-import src/constant as constant
+import slack_emoji_ex_importer/constant
 
 # OSの種類でファイルパスのデリミタが変わる
 var delimiter = "/"
