@@ -42,7 +42,7 @@ Slackのカスタムスタンプの出力と、
 ## Slackに登録済みの絵文字を全部引っ張り出す
 
 ```
-nim c -d:ssl -r exporter.nim
+nimble run exporter
 ```
 
 imgフォルダが作られそこに全部収納されます。  
@@ -61,7 +61,7 @@ imgフォルダが作られそこに全部収納されます。
 ### 実行
 
 ```
-nim c -r importer.nim
+nimble run importer
 ```
 
 するとFirefoxが立ち上がり、絵文字の登録処理をし始めるので待つ。
