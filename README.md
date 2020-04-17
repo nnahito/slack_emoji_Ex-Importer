@@ -1,50 +1,65 @@
-## これは？
+## これは何？
 
-SlackのAPIをNimで叩いてみたかったやつ。
+Slackの絵文字（スタンプ）をいっぱい追加したいけど、  
+手動で追加するのめちゃくちゃ面倒だなー。  
+あーNim書きたいなー。  
+ってときに作ってみたやつ。
+
+Slackのカスタムスタンプの出力と、  
+カスタムスタンプの一括登録ができます。
 
 
 ## 必要なもの
-- Nimが動く環境
+
+- Nimが動作する環境
+    - 公式では[Choosenim](https://github.com/dom96/choosenim/releases)を推奨している。
+    - が、Macでは`brew install nim`で入れることもできる
+    - Windowsでは、`scoop install nim`で入れることができる。
+    - Linuxではそれぞれのパッケージツールで入れることができる。アーチリナックスではchoosenimも配布されていた。すげえわ。
 - SlackのToken（read:emoji）
 - webdriver .... https://github.com/dom96/webdriver/
-- gecko（firefoxのレンダリングエンジン） ... https://github.com/mozilla/geckodriver/releases
+    - Nimインストール後、nimのパッケージ管理ツール（Pythonのpipみたいなの）で入れれる
+    - `nimble install webdriver`
+- gecko（firefoxのレンダリングエンジン）
+    - これは自分で落としてください
+    - https://github.com/mozilla/geckodriver/releases
 
 
-## 必要情報の登録
-`src/constant.example.nim`
+## 事前準備
 
-　↓↓リネーム
+### 上記「必要なもの」に書いたもの
 
-`src/constant.nim`
+- Nim本体
+- `nimble install webdriver`
+- gecko（ https://github.com/mozilla/geckodriver/releases ）
 
-あとはそのファイルを開いてそこに書いて。
+
+### Slackのアクセス情報
+
+- srcフォルダ配下の「constant.example.nim」を「constant.nim」にリネーム
+- constant.nimの中の情報を書き換える
 
 
-## 実行
-
-### Slackから絵文字を出力する
+## Slackに登録済みの絵文字を全部引っ張り出す
 
 ```
 nim c -d:ssl -r exporter.nim
 ```
 
-### Slackに絵文字を登録する
+imgフォルダが作られそこに全部収納されます。  
+「emoji.csv」というファイルに、絵文字の登録名とSlackのアップロード先URLのリストも出力されます。
 
-ちょっとややこい。
 
-絵文字として登録したい画像ファイルを、imgフォルダに突っ込んでいく。
+## Slackに絵文字を一括登録する
 
-このときファイル名がslackの登録名になるので、登録できない文字列は含まないように注意する。
+### 事前準備
 
-geckodriver.exe（Windows）を起動し、Nimのコードを実行する。
+1. imgフォルダをなければ作る
+1. imgフォルダの中に登録したい絵文字ファイルを、ファイル名にSlackの絵文字登録名をつけて追加していく
+1. geckodriverを起動。Windowsだとexeのダブルクリックで起動する。起動したらコンソールが立ち上がるだけで、特に何も起きない
 
-入れていなければWebdriverプラグインも入れる。
 
-```
-nimble install webdriver
-```
-
-↓　実行
+### 実行
 
 ```
 nim c -r importer.nim
