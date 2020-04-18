@@ -1,14 +1,7 @@
 import webdriver
 import options
 import os
-import src/constant as constant
-
-# OSの種類でファイルパスのデリミタが変わる
-var delimiter = "/"
-when defined windows:
-    delimiter = "\\"
-else:
-    delimiter = "/"
+import slack_emoji_ex_importer/constant
 
 # 現在のディレクトリ
 let currentDir = getCurrentDir()
@@ -50,7 +43,7 @@ for f in walkDirRec("./img/"):
 
     # 絵文字の追加
     let addEmojiFile = session.findElement("#emojiimg")
-    let emojiPath = currentDir & delimiter & dir & delimiter & name & ext       # 絵文字ファイル（画像ファイル）のフルパスを作成
+    let emojiPath = currentDir / dir / name & ext       # 絵文字ファイル（画像ファイル）のフルパスを作成
     addEmojiFile.get().sendKeys(emojiPath)
 
     # 絵文字名の追加

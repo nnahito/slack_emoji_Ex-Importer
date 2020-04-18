@@ -3,7 +3,7 @@ import nre
 import os
 import httpclient
 import streams
-import src/emoji as emoji
+import slack_emoji_ex_importer/emoji
 
 # 絵文字リストを取得
 var emojiListJson = emoji.getEmojiList()

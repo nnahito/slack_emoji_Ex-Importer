@@ -17,9 +17,6 @@ Slackのカスタムスタンプの出力と、
     - Windowsでは、`scoop install nim`で入れることができる。
     - Linuxではそれぞれのパッケージツールで入れることができる。アーチリナックスではchoosenimも配布されていた。すげえわ。
 - SlackのToken（read:emoji）
-- webdriver .... https://github.com/dom96/webdriver/
-    - Nimインストール後、nimのパッケージ管理ツール（Pythonのpipみたいなの）で入れれる
-    - `nimble install webdriver`
 - gecko（firefoxのレンダリングエンジン）
     - これは自分で落としてください
     - https://github.com/mozilla/geckodriver/releases
@@ -30,20 +27,26 @@ Slackのカスタムスタンプの出力と、
 ### 上記「必要なもの」に書いたもの
 
 - Nim本体
-- `nimble install webdriver`
 - gecko（ https://github.com/mozilla/geckodriver/releases ）
 
 
 ### Slackのアクセス情報
 
-- srcフォルダ配下の「constant.example.nim」を「constant.nim」にリネーム
+- src/slack_emoji_ex_importerフォルダ配下の「constant.example.nim」を「constant.nim」にリネーム
 - constant.nimの中の情報を書き換える
 
+## ビルド方法
+
+```
+nimble build
+```
 
 ## Slackに登録済みの絵文字を全部引っ張り出す
 
 ```
-nim c -d:ssl -r exporter.nim
+nimble run exporter
+# あるいは
+nimble build && ./bin/exporter
 ```
 
 imgフォルダが作られそこに全部収納されます。  
@@ -62,9 +65,17 @@ imgフォルダが作られそこに全部収納されます。
 ### 実行
 
 ```
-nim c -r importer.nim
+nimble run importer
+# あるいは
+nimble build && ./bin/importer
 ```
 
 するとFirefoxが立ち上がり、絵文字の登録処理をし始めるので待つ。
 
 以上
+
+## 参考
+
+- webdriver .... https://github.com/dom96/webdriver/
+    - Nimインストール後、nimのパッケージ管理ツール（Pythonのpipみたいなの）で入れれる
+    - `nimble install webdriver`
